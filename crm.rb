@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'data_mapper'
 # for importing sinatra/datamapper, require keyword is used (are not files being imported)
-
 DataMapper.setup(:default, "sqlite3:database.sqlite3") #initializes connection to database
 
 class Contact # Declare class contact

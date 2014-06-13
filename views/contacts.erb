@@ -8,7 +8,7 @@
 <h2>You have <%= "#{@@rolodex.counter} #{number}" %>.</h2>
 <!-- Displaying the contact list -->
 <ul class="contacts-list">
-	<% @@rolodex.contacts.each do |contact| %>
+	<% @contacts.each do |contact| %>
 		<div id="inline-contacts">
 			<a href="/contacts/<%= contact.id %>"> 
 				<li class="contactcards"> 

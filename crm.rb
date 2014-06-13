@@ -46,6 +46,7 @@ get '/' do
 end
 
 get '/contacts' do
+	@contacts = Contact.all #fet all over the contacts in the table
 	erb :contacts
 end
 
@@ -59,11 +60,8 @@ end
 
 get '/contacts/:id' do
 	# search contact = an integer that is id input in the URL
-	search_contact = params[:id].to_i 
-	# display contact is the contact pulled from the rolodex when the squeried ID matches a contact id
-	@display_contact = @@rolodex.contacts.find {|contact| contact.id == search_contact }
-	# if display contact successfully pulled, call contact.erb
-	if @display_contact
+	@contact = Contact.get(params[:id].to_i)
+	if @contact
 		erb :contact
 	else # else 404
 		raise Sinatra::NotFound
@@ -83,11 +81,15 @@ get '/contacts/:id/edit' do
 end 
 
 post '/contacts' do # When a post is made to /contacts, take the information passed to params via HTML FORM
-	# and assign that information to a new contact (new instance of contact class)
-	new_contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-	# Add this new contact to rolodex
-	@@rolodex.add_contact(new_contact)
-	redirect to('/contacts') #redirect browser back to display all contacts page
+	# and assign that information to a new contact record in database
+		contact = Contact.create(
+			:first_name => params[:first_name],
+			:last_name => params[:last_name],
+			:email => params[:email],
+			:note => params[:note],
+			)
+		redirect to('/contacts')
+ #redirect browser back to display all contacts page
 end
 
 put '/contacts/:id' do #When put is made to contacts/:id (aka an ammendment to existing contact)

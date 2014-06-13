@@ -1,11 +1,33 @@
-require_relative 'contact'
 require_relative 'rolodex'
 
 require 'sinatra'
 require 'data_mapper'
 # for importing sinatra/datamapper, require keyword is used (are not files being imported)
 
-Datamapper.setup(:default, "sqlite3:database.sqlite3") #initializes connection to database
+DataMapper.setup(:default, "sqlite3:database.sqlite3") #initializes connection to database
+
+class Contact # Declare class contact
+	include DataMapper::Resource # when this datamapper module included, allos us access to Datamapper methods to interface with database
+	# Above line results in DataMapper considering this class to represent a single database table
+	# AKA every time we create new contact record, will automatically insert into contacts database table
+
+	#We can remove attr_accessor and initialize method, as properties
+	# also set up getter/setter methods for each one
+
+	property :id, Serial
+	property :first_name, String
+	property :last_name, String
+	property :email, String
+	property :note, String
+
+	# When you define a property you pass in name of column (in database) as a symbol
+	# and then the datatype it requires
+	# FYI Serial = integer that automatically increments
+end 
+
+DataMapper.finalize #placed at end of class definitions, validates issues with tables/columns
+DataMapper.auto_upgrade! #takes care of effecting changes to underlying structure of tables/columns
+
 
 # for importing files in same dir, we use require_relative
 # for importing sinatra, require keyword is used

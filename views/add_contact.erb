@@ -1,0 +1,19 @@
+<!-- In our erb views we use CSS to fill the body of the page where the yield is called -->
+<div id="container">
+
+	<h2 id="add_header">Please add a contact below: </h2>
+
+<!-- This form posts a new contact to /contacts, which adds a contact to the rolodex -->
+<form action= "/contacts" method="post" id="add_contact"> 
+
+		<input type="text" name="first_name" placeholder="First Name" id="First Name" required> 
+		<input type="text" name="last_name"  placeholder="Last Name" id="Last Name" required> 
+	  <input type="email" name ="email"  id = "Email" placeholder="Email" required> 
+		<input type="text" name="note" placeholder="Note" required>
+
+		<button type="submit" class="hover">Submit</button>
+
+	</form>
+</div>
+
+	

@@ -1,0 +1,23 @@
+<h2>All Contacts</h2>
+<!-- Logic determining whether to output contact/contacts based on numebr of contacts -->
+<% num = @@rolodex.counter %>
+<% if num == 1 then number = "contact" %>
+<% else number = "contacts" %>
+<% end %>
+
+<h2>You have <%= "#{@@rolodex.counter} #{number}" %>.</h2>
+<!-- Displaying the contact list -->
+<ul class="contacts-list">
+	<% @@rolodex.contacts.each do |contact| %>
+		<div id="inline-contacts">
+			<a href="/contacts/<%= contact.id %>"> 
+				<li class="contactcards"> 
+						<%= contact.first_name %> <%= contact.last_name %> <hr>
+						<%= contact.email %> <br> 
+						Note: <%= contact.note %> <br> 
+						ID: <%= contact.id %>
+				</li>
+			</a>
+	</div>
+	<% end %>
+</ul>

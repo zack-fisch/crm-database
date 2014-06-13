@@ -1,0 +1,150 @@
+/* Throughout Document Style */
+* {
+	box-sizing: border-box;
+	font-family: Helvetica, sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+header {
+	width: 100%;
+	background-color: slategray;
+	opacity: .7;
+}
+
+h1 {
+	color: white;
+	opacity: .7;
+	padding-left: .5em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+h2 {
+	text-align: center;
+	color: black;
+	opacity: .5;
+	min-width: 60px;
+}
+
+nav {
+	text-align: center;
+	margin-top: 10px;
+	padding: 10px 0;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+
+nav > a {
+	padding-left: 25px;
+}
+
+/* End of Throughout Styles */
+
+/* Add Contacts erb */
+
+input, button {
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+	margin-top: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	border: 2px solid gray;
+}
+
+input:focus, button:focus{
+	border: 4px solid lightblue;
+}
+
+input:hover, button:hover {
+	cursor: pointer;
+}
+
+#container {
+	width: 500px;
+	margin: auto;
+}
+
+nav a {
+	color: white;
+	opacity: .7;
+	text-decoration: none;
+	transition: color 1s ease;
+}
+
+nav a:hover {
+		color: black;
+}
+
+#add_contact {
+	margin-top: 40px;
+}
+
+/* End of add Contact */
+
+
+/* Start of List Contacts */
+
+.contacts-list {
+	text-align: center;
+}
+
+.contactcards {
+	min-width: 200px;
+	width: 24%;
+	height: 100px;
+	background-color: slategray;
+	display: inline-block;
+	margin-top: 30px;
+	text-align: center;
+	opacity: .7;
+	list-style-type: none;
+	color: white;
+}
+
+.contactcards:hover {
+	opacity: 1;
+}
+
+#inline-contacts {
+	display: inline-block;
+}
+
+/* End List of Contacts */
+
+/* Start display indvidiual contact */
+
+#contact-center {
+	text-align: center;
+}
+
+#contact-center li {
+	display: inline-block;
+	width: 24%;
+	height: 100px;
+	background-color: slategray;
+	margin-top: 30px;
+	list-style-type: none;
+	min-width: 200px;
+	color: white;
+	opacity: .7;
+	padding: 0;
+}
+
+ul {
+	-webkit-padding-start: 0;
+	-webkit-margin-after: 0;
+}
+
+.hover:hover {
+	opacity: .7;
+	background-color: #ecf0f1;
+	cursor: pointer;
+
+}
+
+
+

@@ -1,0 +1,27 @@
+<!-- define layout to be applied to pages, before the yield is executed and code in 
+different views is applied to body -->
+<!DOCTYPE html> 
+<html>
+
+	<head>
+		<title>Rollo</title>
+		<link rel="stylesheet" type="text/css" href="/style.css">
+		<link rel="shortcut icon" href="/favicon.ico">
+	
+	</head>
+
+	<header>
+			<h1>Welcome to <%= @@crm_app_name %></h1> 
+			<nav>
+				<a href="/contacts/new">Add Contact</a>
+				<a href="/contacts">View Contacts</a>
+				<a href="http://www.zfisch.com">Exit</a>
+			</nav>
+	</header>
+
+	<body>
+		<%= yield %>
+
+	</body>
+
+</html>

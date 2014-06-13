@@ -4,16 +4,16 @@
 
 <!-- The ID is entered via the URL search bar, that contact is called and displayed -->
 <ul id="contact-center">
-	<li><%= @display_contact.first_name %> <%= @display_contact.last_name %> <hr> <%= @display_contact.email %> <br> Note: <%= @display_contact.note %> <br> ID: <%= @display_contact.id %></li>
+	<li><%= @contact.first_name %> <%= @contact.last_name %> <hr> <%= @contact.email %> <br> Note: <%= @contact.note %> <br> ID: <%= @contact.id %></li>
 </ul>
 
 <!-- Delete contact if this button is pressed -->
-<form action="/contacts/<%= @display_contact.id %>" method="post">
+<form action="/contacts/<%= @contact.id %>" method="post">
 	<input type="hidden" name="_method" value="delete">
 	<input type="submit" name="Delete Contact" value="Delete Contact" class="hover">
 </form>
 
 <!-- Edit contact if this button is pressed -->
-<form action="/contacts/<%= @display_contact.id %>/edit" method="get"> 
+<form action="/contacts/<%= @contact.id %>/edit" method="get"> 
 	<input type="submit" name="Edit Contact" value="Edit Contact" class="hover">
 </form>
